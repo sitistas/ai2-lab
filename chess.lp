@@ -11,6 +11,9 @@ occupied(Y):-bishop(_,_,Y), Y=1..8.
 :-tower(I,X,_), bishop(J,Z,_), X==Z.
 
 %Ο αξιωματικός δε μπορεί να βρίσκεται στην ίδια διαγώνιο με άλλο πύργο ή αξιωματικό
-:-bishop(I,X,Y), bishop(J,Z,W), Z-X!=W-Y.
-:-bishop(I,X,Y), tower(J,Z,W), Z-X!=W-Y.
+:-bishop(I,X,Y), bishop(J,Z,W), (X,Y)!=(Z,W), X+Y==Z+W.
+:-bishop(I,X,Y), bishop(J,Z,W), (X,Y)!=(Z,W), X+Y==Z-W.
+:-bishop(I,X,Y), tower(J,Z,W), (X,Y)!=(Z,W), X+Y==Z+W.
+:-bishop(I,X,Y), tower(J,Z,W), (X,Y)!=(Z,W), X+Y==Z-W.
 
+#show tower/2.
