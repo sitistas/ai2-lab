@@ -16,4 +16,10 @@ occupied(Y):-bishop(_,_,Y), Y=1..8.
 :-bishop(I,X,Y), tower(J,Z,W), (X,Y)!=(Z,W), X+Y==Z+W.
 :-bishop(I,X,Y), tower(J,Z,W), (X,Y)!=(Z,W), X+Y==Z-W.
 
-#show tower/2.
+%Δύο πιόνια δε μπορούν να βρίσκονται στην ίδια θέση
+:-bishop(I,X,Y), bishop(J,X,Y),I!=J.
+:-tower(I,X,Y), tower(J,X,Y),I!=J.
+
+
+#show tower/3.
+#show bishop/3.
